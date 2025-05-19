@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nishant Tyagi | Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2d72d9;
+      --secondary: #0f1c2e;
+      --accent: #5e9cff;
+      --gradient: linear-gradient(120deg, #2d72d9 0%, #5e9cff 100%);
+      --bg: #f7f9fb;
+      --card-bg: #fff;
+      --shadow: 0 4px 24px rgba(45,114,217,0.10);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--secondary);
+    }
+    body {
+      min-height: 100vh;
+    }
+    /* NAVIGATION */
+    .navbar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: var(--card-bg);
+      box-shadow: 0 2px 12px rgba(45,114,217,0.06);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+    }
+    .navbar .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+    .navbar nav a {
+      color: var(--secondary);
+      text-decoration: none;
+      margin-left: 32px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .navbar nav a:hover {
+      color: var(--primary);
+    }
+    /* HERO SECTION */
+    .hero {
+      background: var(--gradient);
+      color: #fff;
+      padding: 90px 0 70px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 0 0 18px 0;
+      letter-spacing: 2px;
+    }
+    .hero .tagline {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      color: #e0eafc;
+    }
+    .hero .cta-btn {
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      border-radius: 30px;
+      padding: 16px 38px;
+      font-size: 1.2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(45,114,217,0.13);
+      transition: background 0.2s, color 0.2s;
+      margin-top: 18px;
+    }
+    .hero .cta-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .hero-img {
+      margin: 38px auto 0 auto;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      background: #eaeaea;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* SECTION STYLES */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.3rem;
+      color: var(--primary);
+      margin: 70px 0 30px 0;
+      letter-spacing: 1px;
+      text-align: left;
+      font-weight: 700;
+    }
+    /* ABOUT */
+    .about {
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 1000px;
+      margin-bottom: 40px;
+    }
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 32px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .skill-card:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(45,114,217,0.13);
+    }
+    .skill-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .skill-card span {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(45,114,217,0.13);
+    }
+    .project-img {
+      width: 100%;
+      height: 180px;
+      background: #eaeaea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #b0b0b0;
+    }
+    .project-content {
+      padding: 28px 22px 22px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .project-desc {
+      color: #444;
+      font-size: 1.08rem;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .project-links a {
+      color: var(--primary);
+      text-decoration: none;
+      margin-right: 16px;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+    .project-links a:hover {
+      color: var(--accent);
+    }
+    /* CONTACT */
+    .contact-section {
+      background: var(--gradient);
+      color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(45,114,217,0.10);
+      padding: 48px 24px;
+      max-width: 600px;
+      margin: 60px auto 40px auto;
+      text-align: center;
+    }
+    .contact-section .contact-info {
+      font-size: 1.2rem;
+      margin-bottom: 22px;
+    }
+    .contact-section .socials a {
+      margin: 0 16px;
+      font-size: 2rem;
+      color: #fff;
+      transition: color 0.2s;
+    }
+    .contact-section .socials a:hover {
+      color: #e0eafc;
+    }
+    @media (max-width: 900px) {
+      .navbar { padding: 0 12px; }
+      .container { padding: 0 6px; }
+    }
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 2.1rem; }
+      .section-title { font-size: 1.3rem; }
+      .hero-img { width: 110px; height: 110px; }
+      .navbar nav a { margin-left: 16px; font-size: 1rem; }
+    }
+    .services-section {
+      text-align: center;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      justify-items: center;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(45,114,217,0.10);
+      padding: 32px 18px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(45,114,217,0.13);
+    }
+    .service-card img {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 18px;
+    }
+    .service-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      color: #2d72d9;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .service-card p {
+      color: #444;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">Nishant</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Building Intelligent Software<br>for Your Business</h1>
+      <div class="tagline">JavaScript, AI & Ruby on Rails Developer | React, APIs, Cloud, AI Solutions</div>
+      <button class="cta-btn" onclick="window.location='#contact'">Let's Work Together</button>
+      <div class="hero-img">
+        <img src="https://ui-avatars.com/api/?name=Nishant+Tyagi&background=2d72d9&color=fff&size=256" alt="Nishant Tyagi profile" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <div id="services" class="services-section container">
+    <div class="section-title" style="text-align:center;">My Services</div>
+    <div class="services-grid" style="justify-content:center;">
+      <div class="service-card">
+        <img src="https://framerusercontent.com/images/xblGSrRVOB0DIYMuYueouyHlQ.jpg?scale-down-to=2048" alt="AI-Based Automated Systems" style="object-fit:cover; border-radius:12px; width:72px; height:72px;">
+        <h3>AI-Based Automated Systems</h3>
+        <p>From intelligent automation to smart workflows, we build AI-powered solutions for your business.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/network.png" alt="Scalable Distributed Systems" style="object-fit:cover; border-radius:12px; width:72px; height:72px;">
+        <h3>Scalable Distributed Systems</h3>
+        <p>Designing and deploying robust, scalable systems to handle your toughest technology challenges.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/source-code.png" alt="Custom Software Development">
+        <h3>Custom Software Development</h3>
+        <p>Tailored software solutions for startups and enterprises, from concept to launch.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/rocket--v2.png" alt="Product Development & Quick Launch">
+        <h3>Product Development & Quick Launch</h3>
+        <p>Accelerated product development cycles for faster go-to-market and reduced risk.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/conference-call.png" alt="Integrated Engineering Teams">
+        <h3>Integrated Engineering Teams</h3>
+        <p>We embed ourselves into your workflow, bringing the right mix of engineers, researchers, and product minds to execute your vision seamlessly.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/integration.png" alt="End-to-End Solutions" style="object-fit:cover; border-radius:12px; width:72px; height:72px;">
+        <h3>End-to-End Solutions</h3>
+        <p>We take full ownership of your tech and product development—from building products from scratch to scaling existing systems with precision and speed.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/search--v2.png" alt="Discovery & Research">
+        <h3>Discovery & Research</h3>
+        <p>Our journey begins with understanding your unique challenges and objectives, followed by deep research and analysis.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/design.png" alt="Design & Strategy">
+        <h3>Design & Strategy</h3>
+        <p>We craft strategies and design solutions tailored to your business needs for maximum impact.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/development-skill.png" alt="Development & Handover">
+        <h3>Development & Handover</h3>
+        <p>We develop, deliver, and hand over robust solutions, ensuring a smooth transition and ongoing support.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/design--v2.png" alt="UI/UX Design">
+        <h3>UI/UX Design</h3>
+        <p>Complete support from product management to intuitive UI/UX design for delightful user experiences.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/cloud.png" alt="Cloud & DevOps Solutions">
+        <h3>Cloud & DevOps Solutions</h3>
+        <p>Modern cloud and DevOps solutions for secure, scalable, and efficient operations.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://img.icons8.com/color/96/000000/combo-chart--v2.png" alt="Data Analytics & Intelligence">
+        <h3>Data Analytics & Intelligence</h3>
+        <p>Unlock actionable insights and drive business growth with advanced data analytics and intelligence solutions.</p>
+      </div>
+    </div>
+  </div>
+  <!-- END SERVICES SECTION -->
+
+  <div class="container">
+    <!-- ABOUT SECTION -->
+    <div id="about" class="about">
+      <div class="section-title">About Me</div>
+      Hi! I'm Nishant, a passionate developer with 5+ years of experience building modern web and app solutions using JavaScript, React, and Ruby on Rails. I have strong experience and skill in Artificial Intelligence (AI) and AI-powered solutions, delivering intelligent automation and smart digital products. I love turning ideas into reality with clean code, robust APIs, and beautiful user interfaces. I thrive in collaborative teams and enjoy solving complex problems with innovative technology.
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <div id="skills">
+      <div class="section-title">Skills & Technologies</div>
+      <div class="skills-grid">
+        <div class="skill-card"><img src="https://framerusercontent.com/images/xblGSrRVOB0DIYMuYueouyHlQ.jpg?scale-down-to=2048" alt="Artificial Intelligence (AI)" style="object-fit:cover; border-radius:12px; width:48px; height:48px;"><span>Artificial Intelligence (AI)</span></div>
+        <div class="skill-card"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+        <div class="skill-card"><i class="fab fa-react"></i><span>React / Redux</span></div>
+        <div class="skill-card"><i class="fas fa-gem"></i><span>Ruby / Rails</span></div>
+        <div class="skill-card"><i class="fab fa-html5"></i><span>HTML5</span></div>
+        <div class="skill-card"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+        <div class="skill-card"><i class="fas fa-database"></i><span>MySQL / PostgreSQL</span></div>
+        <div class="skill-card"><i class="fab fa-aws"></i><span>AWS</span></div>
+        <div class="skill-card"><i class="fab fa-microsoft"></i><span>Azure</span></div>
+        <div class="skill-card"><i class="fab fa-docker"></i><span>Docker</span></div>
+        <div class="skill-card"><i class="fas fa-cubes"></i><span>Kubernetes</span></div>
+        <div class="skill-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
+      </div>
+    </div>
+
+    <!-- PROJECTS SECTION -->
+    <div id="projects">
+      <div class="section-title">Projects</div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-img"><i class="fas fa-building"></i></div>
+          <div class="project-content">
+            <div class="project-title">Serraview</div>
+            <div class="project-desc">Workspace management platform. Built APIs for mobile and web using Ruby on Rails and React.js. Led requirements gathering, coding, and deployment.</div>
+            <div class="project-links">
+              <a href="#" title="View Project"><i class="fas fa-external-link-alt"></i> Live</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img"><i class="fas fa-hard-hat"></i></div>
+          <div class="project-content">
+            <div class="project-title">ConstructOye</div>
+            <div class="project-desc">Construction software suite. Led full-stack development, API design, and team mentoring using Rails and React. Managed deployments and client objectives.</div>
+            <div class="project-links">
+              <a href="#" title="View Project"><i class="fas fa-external-link-alt"></i> Live</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img"><i class="fas fa-user-tie"></i></div>
+          <div class="project-content">
+            <div class="project-title">Seniorleads</div>
+            <div class="project-desc">Lead generation web app. Architected user authentication, admin panels, and responsive UI with Rails, HTML, CSS, and JavaScript.</div>
+            <div class="project-links">
+              <a href="#" title="View Project"><i class="fas fa-external-link-alt"></i> Live</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="section-title" style="color:#fff;">Contact</div>
+    <div class="contact-info">
+      <div><i class="fas fa-envelope"></i> tyaginishant019@gmail.com</div>
+      <div><i class="fas fa-phone"></i> +91 8607404307</div>
+      <div><i class="fas fa-map-marker-alt"></i> Sonipat, Haryana, India</div>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/nishant-tyagi-b67b4313a/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Nishanttyagi17" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:tyaginishant019@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+</body>
+</html> 
